@@ -66,9 +66,8 @@ class BlogController extends Controller
     }
     function hot()
     { 
-        $user = Auth::user();   
+        $user = Auth::user();
         $allblogs = Blog::where('category','hot')->paginate(3);
-       
         $email = $user->email;
         //select count(*) as categorycount, category from blogs group by category
         $blogscatcount = DB::table('blogs')
